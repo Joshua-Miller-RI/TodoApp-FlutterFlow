@@ -1,0 +1,346 @@
+import '/auth/firebase_auth/auth_util.dart';
+import '/backend/backend.dart';
+import '/flutter_flow/ff_builtin_enums.dart';
+import '/flutter_flow/flutter_flow_icon_button.dart';
+import '/flutter_flow/flutter_flow_theme.dart';
+import '/flutter_flow/flutter_flow_util.dart';
+import '/flutter_flow/flutter_flow_widgets.dart';
+import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'add_task_model.dart';
+export 'add_task_model.dart';
+
+class AddTaskWidget extends StatefulWidget {
+  const AddTaskWidget({super.key});
+
+  @override
+  State<AddTaskWidget> createState() => _AddTaskWidgetState();
+}
+
+class _AddTaskWidgetState extends State<AddTaskWidget> {
+  late AddTaskModel _model;
+
+  @override
+  void setState(VoidCallback callback) {
+    super.setState(callback);
+    _model.onUpdate();
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _model = createModel(context, () => AddTaskModel());
+
+    _model.addTitleTextController ??= TextEditingController();
+    _model.addTitleFocusNode ??= FocusNode();
+
+    _model.addDetailsTextController ??= TextEditingController();
+    _model.addDetailsFocusNode ??= FocusNode();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) => safeSetState(() {}));
+  }
+
+  @override
+  void dispose() {
+    _model.maybeDispose();
+
+    super.dispose();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: double.infinity,
+      decoration: BoxDecoration(
+        color: FlutterFlowTheme.of(context).secondaryBackground,
+        borderRadius: BorderRadius.only(
+          topLeft: Radius.circular(24.0),
+          topRight: Radius.circular(24.0),
+        ),
+        border: Border.all(
+          color: FlutterFlowTheme.of(context).primaryText,
+          width: 1.0,
+        ),
+      ),
+      child: Padding(
+        padding: EdgeInsets.all(24.0),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: (FFCrossAxisAlignment.start).flutterValue,
+          textBaseline: TextBaseline.alphabetic,
+          children: [
+            Row(
+              mainAxisSize: MainAxisSize.max,
+              mainAxisAlignment: (FFMainAxisAlignment.end).flutterValue,
+              children: [
+                FlutterFlowIconButton(
+                  borderRadius: 20.0,
+                  borderWidth: 0.0,
+                  buttonSize: 50.0,
+                  icon: Icon(
+                    Icons.close,
+                    size: 30.0,
+                  ),
+                  onPressed: () async {
+                    Navigator.pop(context);
+                  },
+                ),
+              ],
+            ),
+            Text(
+              'Add Task',
+              style: FlutterFlowTheme.of(context).headlineLarge.override(
+                    font: GoogleFonts.inter(
+                      fontWeight:
+                          FlutterFlowTheme.of(context).headlineLarge.fontWeight,
+                      fontStyle:
+                          FlutterFlowTheme.of(context).headlineLarge.fontStyle,
+                    ),
+                    letterSpacing: 0.0,
+                    fontWeight:
+                        FlutterFlowTheme.of(context).headlineLarge.fontWeight,
+                    fontStyle:
+                        FlutterFlowTheme.of(context).headlineLarge.fontStyle,
+                  ),
+            ),
+            Container(
+              width: double.infinity,
+              child: TextFormField(
+                controller: _model.addTitleTextController,
+                focusNode: _model.addTitleFocusNode,
+                autofocus: false,
+                enabled: true,
+                obscureText: false,
+                decoration: InputDecoration(
+                  isDense: true,
+                  labelStyle: FlutterFlowTheme.of(context).labelMedium.override(
+                        font: GoogleFonts.inter(
+                          fontWeight: FlutterFlowTheme.of(context)
+                              .labelMedium
+                              .fontWeight,
+                          fontStyle: FlutterFlowTheme.of(context)
+                              .labelMedium
+                              .fontStyle,
+                        ),
+                        letterSpacing: 0.0,
+                        fontWeight:
+                            FlutterFlowTheme.of(context).labelMedium.fontWeight,
+                        fontStyle:
+                            FlutterFlowTheme.of(context).labelMedium.fontStyle,
+                      ),
+                  hintText: 'Title...',
+                  hintStyle: FlutterFlowTheme.of(context).labelLarge.override(
+                        font: GoogleFonts.inter(
+                          fontWeight: FlutterFlowTheme.of(context)
+                              .labelLarge
+                              .fontWeight,
+                          fontStyle:
+                              FlutterFlowTheme.of(context).labelLarge.fontStyle,
+                        ),
+                        letterSpacing: 0.0,
+                        fontWeight:
+                            FlutterFlowTheme.of(context).labelLarge.fontWeight,
+                        fontStyle:
+                            FlutterFlowTheme.of(context).labelLarge.fontStyle,
+                      ),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: FlutterFlowTheme.of(context).primaryText,
+                      width: 1.0,
+                    ),
+                    borderRadius: BorderRadius.circular(24.0),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: Color(0x00000000),
+                      width: 1.0,
+                    ),
+                    borderRadius: BorderRadius.circular(24.0),
+                  ),
+                  errorBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: FlutterFlowTheme.of(context).error,
+                      width: 1.0,
+                    ),
+                    borderRadius: BorderRadius.circular(24.0),
+                  ),
+                  focusedErrorBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: FlutterFlowTheme.of(context).error,
+                      width: 1.0,
+                    ),
+                    borderRadius: BorderRadius.circular(24.0),
+                  ),
+                  filled: true,
+                  fillColor: FlutterFlowTheme.of(context).secondaryBackground,
+                  contentPadding:
+                      EdgeInsetsDirectional.fromSTEB(24.0, 26.0, 24.0, 26.0),
+                ),
+                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                      font: GoogleFonts.inter(
+                        fontWeight:
+                            FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                        fontStyle:
+                            FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                      ),
+                      letterSpacing: 0.0,
+                      fontWeight:
+                          FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                      fontStyle:
+                          FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                    ),
+                cursorColor: FlutterFlowTheme.of(context).primaryText,
+                enableInteractiveSelection: true,
+                validator:
+                    _model.addTitleTextControllerValidator.asValidator(context),
+              ),
+            ),
+            Container(
+              width: double.infinity,
+              child: TextFormField(
+                controller: _model.addDetailsTextController,
+                focusNode: _model.addDetailsFocusNode,
+                autofocus: false,
+                enabled: true,
+                obscureText: false,
+                decoration: InputDecoration(
+                  isDense: true,
+                  labelStyle: FlutterFlowTheme.of(context).labelMedium.override(
+                        font: GoogleFonts.inter(
+                          fontWeight: FlutterFlowTheme.of(context)
+                              .labelMedium
+                              .fontWeight,
+                          fontStyle: FlutterFlowTheme.of(context)
+                              .labelMedium
+                              .fontStyle,
+                        ),
+                        letterSpacing: 0.0,
+                        fontWeight:
+                            FlutterFlowTheme.of(context).labelMedium.fontWeight,
+                        fontStyle:
+                            FlutterFlowTheme.of(context).labelMedium.fontStyle,
+                      ),
+                  hintText: 'Details...',
+                  hintStyle: FlutterFlowTheme.of(context).labelLarge.override(
+                        font: GoogleFonts.inter(
+                          fontWeight: FlutterFlowTheme.of(context)
+                              .labelLarge
+                              .fontWeight,
+                          fontStyle:
+                              FlutterFlowTheme.of(context).labelLarge.fontStyle,
+                        ),
+                        letterSpacing: 0.0,
+                        fontWeight:
+                            FlutterFlowTheme.of(context).labelLarge.fontWeight,
+                        fontStyle:
+                            FlutterFlowTheme.of(context).labelLarge.fontStyle,
+                      ),
+                  enabledBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: FlutterFlowTheme.of(context).primaryText,
+                      width: 1.0,
+                    ),
+                    borderRadius: BorderRadius.circular(24.0),
+                  ),
+                  focusedBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: Color(0x00000000),
+                      width: 1.0,
+                    ),
+                    borderRadius: BorderRadius.circular(24.0),
+                  ),
+                  errorBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: FlutterFlowTheme.of(context).error,
+                      width: 1.0,
+                    ),
+                    borderRadius: BorderRadius.circular(24.0),
+                  ),
+                  focusedErrorBorder: OutlineInputBorder(
+                    borderSide: BorderSide(
+                      color: FlutterFlowTheme.of(context).error,
+                      width: 1.0,
+                    ),
+                    borderRadius: BorderRadius.circular(24.0),
+                  ),
+                  filled: true,
+                  fillColor: FlutterFlowTheme.of(context).secondaryBackground,
+                  contentPadding:
+                      EdgeInsetsDirectional.fromSTEB(24.0, 26.0, 24.0, 26.0),
+                ),
+                style: FlutterFlowTheme.of(context).bodyMedium.override(
+                      font: GoogleFonts.inter(
+                        fontWeight:
+                            FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                        fontStyle:
+                            FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                      ),
+                      letterSpacing: 0.0,
+                      fontWeight:
+                          FlutterFlowTheme.of(context).bodyMedium.fontWeight,
+                      fontStyle:
+                          FlutterFlowTheme.of(context).bodyMedium.fontStyle,
+                    ),
+                maxLines: null,
+                minLines: 3,
+                cursorColor: FlutterFlowTheme.of(context).primaryText,
+                enableInteractiveSelection: true,
+                validator: _model.addDetailsTextControllerValidator
+                    .asValidator(context),
+              ),
+            ),
+            FFButtonWidget(
+              onPressed: () async {
+                await TasksRecord.collection.doc().set(createTasksRecordData(
+                      title: valueOrDefault<String>(
+                        _model.addTitleTextController.text,
+                        'title',
+                      ),
+                      details: valueOrDefault<String>(
+                        _model.addDetailsTextController.text,
+                        'details',
+                      ),
+                      completed: false,
+                      user: currentUserReference,
+                      created: getCurrentTimestamp,
+                    ));
+                Navigator.pop(context);
+              },
+              text: 'Add Task',
+              icon: Icon(
+                Icons.add,
+                size: 30.0,
+              ),
+              options: FFButtonOptions(
+                width: double.infinity,
+                height: 70.0,
+                padding: EdgeInsetsDirectional.fromSTEB(16.0, 0.0, 16.0, 0.0),
+                iconPadding: EdgeInsetsDirectional.fromSTEB(0.0, 0.0, 0.0, 0.0),
+                color: FlutterFlowTheme.of(context).primary,
+                textStyle: FlutterFlowTheme.of(context).labelMedium.override(
+                      font: GoogleFonts.inter(
+                        fontWeight:
+                            FlutterFlowTheme.of(context).labelMedium.fontWeight,
+                        fontStyle:
+                            FlutterFlowTheme.of(context).labelMedium.fontStyle,
+                      ),
+                      letterSpacing: 0.0,
+                      fontWeight:
+                          FlutterFlowTheme.of(context).labelMedium.fontWeight,
+                      fontStyle:
+                          FlutterFlowTheme.of(context).labelMedium.fontStyle,
+                    ),
+                elevation: 0.0,
+                borderSide: BorderSide(
+                  color: FlutterFlowTheme.of(context).primaryText,
+                  width: 1.0,
+                ),
+                borderRadius: BorderRadius.circular(24.0),
+              ),
+            ),
+          ].divide(SizedBox(height: 24.0)),
+        ),
+      ),
+    );
+  }
+}
