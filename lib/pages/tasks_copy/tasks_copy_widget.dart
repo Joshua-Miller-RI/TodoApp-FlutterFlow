@@ -117,7 +117,7 @@ class _TasksCopyWidgetState extends State<TasksCopyWidget> {
                     padding:
                         EdgeInsetsDirectional.fromSTEB(24.0, 0.0, 24.0, 0.0),
                     child: Text(
-                      'Completed',
+                      'Completed Tasks',
                       style:
                           FlutterFlowTheme.of(context).headlineMedium.override(
                                 font: GoogleFonts.inter(
