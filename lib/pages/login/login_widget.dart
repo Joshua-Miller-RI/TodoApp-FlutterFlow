@@ -1066,8 +1066,11 @@ class _LoginWidgetState extends State<LoginWidget>
                               if (user == null) {
                                 return;
                               }
+
+                              context.pushNamedAuth(
+                                  TasksWidget.routeName, context.mounted);
                             },
-                            text: 'LogIn',
+                            text: 'Log In',
                             options: FFButtonOptions(
                               width: double.infinity,
                               height: 70.0,
