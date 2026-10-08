@@ -3,6 +3,7 @@ import 'dart:async';
 import 'package:collection/collection.dart';
 
 import '/backend/schema/util/firestore_util.dart';
+import '/backend/schema/util/schema_util.dart';
 
 import 'index.dart';
 import '/flutter_flow/flutter_flow_util.dart';
@@ -77,8 +78,7 @@ class TasksRecord extends FirestoreRecord {
 
   @override
   bool operator ==(other) =>
-      other is TasksRecord &&
-      reference.path.hashCode == other.reference.path.hashCode;
+      other is TasksRecord && reference.path == other.reference.path;
 }
 
 Map<String, dynamic> createTasksRecordData({

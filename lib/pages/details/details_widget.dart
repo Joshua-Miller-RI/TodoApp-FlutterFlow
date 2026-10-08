@@ -1,12 +1,16 @@
+import '/auth/firebase_auth/auth_util.dart';
 import '/backend/backend.dart';
 import '/flutter_flow/ff_builtin_enums.dart';
 import '/flutter_flow/flutter_flow_icon_button.dart';
 import '/flutter_flow/flutter_flow_theme.dart';
 import '/flutter_flow/flutter_flow_util.dart';
 import '/flutter_flow/flutter_flow_widgets.dart';
+import 'dart:ui';
 import '/index.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:provider/provider.dart';
 import 'details_model.dart';
 export 'details_model.dart';
 
@@ -37,14 +41,14 @@ class _DetailsWidgetState extends State<DetailsWidget> {
 
     _model.textController1 ??= TextEditingController(
         text: valueOrDefault<String>(
-      widget.taskDoc?.title,
+      widget!.taskDoc?.title,
       'title',
     ));
     _model.textFieldFocusNode1 ??= FocusNode();
 
     _model.textController2 ??= TextEditingController(
         text: valueOrDefault<String>(
-      widget.taskDoc?.details,
+      widget!.taskDoc?.details,
       'details',
     ));
     _model.textFieldFocusNode2 ??= FocusNode();
@@ -431,7 +435,7 @@ class _DetailsWidgetState extends State<DetailsWidget> {
                           child: FFButtonWidget(
                             onPressed: () async {
                               if (_model.editingMode) {
-                                await widget.taskDoc!.reference
+                                await widget!.taskDoc!.reference
                                     .update(createTasksRecordData(
                                   title: valueOrDefault<String>(
                                     _model.textController1.text,
