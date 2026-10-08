@@ -11,6 +11,7 @@ const _kPrivateApiFunctionName = 'ffPrivateApiCall';
 class ZenQuoteCall {
   static Future<ApiCallResponse> call({
     String? quote = '',
+    String? author = '',
   }) async {
     return ApiManager.instance.makeApiCall(
       callName: 'ZenQuote',
